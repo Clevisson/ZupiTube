@@ -31,11 +31,11 @@ public class CommentController {
         return repository.save(comment);
     }
 
-    @PutMapping(value = "/{id}")//VER NECESSIDADE DE UPDATE COMMENT
+    @PutMapping(value = "/{id}")
     public ResponseEntity<Comment> updateCommentById(@PathVariable("id") long id, @RequestBody Comment comment) {
         return repository.findById(id)
                 .map(record -> {
-                    record.setReplay(comment.getReplay());
+                    record.setText(comment.getText());
                     record.setCreatedAt(comment.getCreatedAt());
                     record.setUpdated_at(comment.getUpdated_at());
                     Comment updated = repository.save(record);

@@ -110,4 +110,9 @@ public class User {
     public void setProfilePic(String profilePic) {
         this.profilePic = profilePic;
     }
+
+  @Override
+    public String toString(){
+        return getFirstName() + getLastName();
+  }
 }

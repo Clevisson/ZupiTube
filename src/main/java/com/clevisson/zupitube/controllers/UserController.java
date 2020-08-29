@@ -15,7 +15,7 @@ public class UserController {
     }
 
     @GetMapping
-    public Iterable<User> listVideo() {
+    public Iterable<User> listUser() {
         return repository.findAll();
     }
 
@@ -31,7 +31,7 @@ public class UserController {
         return repository.save(user);
     }
 
-    @PutMapping(value = "/{id}")//VER NECESSIDADE DE UPDATE COMMENT
+    @PutMapping(value = "/{id}")
     public ResponseEntity<User> updateUserById(@PathVariable("id") long id, @RequestBody User user) {
         return repository.findById(id)
                 .map(record -> {

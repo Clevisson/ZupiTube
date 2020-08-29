@@ -1,0 +1,5 @@
+amazonProperties:
+  endpointUrl: https://909556637777.signin.aws.amazon.com/console
+  accessKey: AKIA5HROM4BIRXRTGS3M
+  secretKey: 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
+  bucketName: zupiupload

@@ -1,10 +1,10 @@
 package com.clevisson.zupitube.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Set;
-
-
 @Entity
 @Table(name = "videos")
 public class Video {
@@ -13,43 +13,29 @@ public class Video {
     private Long id;
     private String tumbnail_url;
     private String key;
-    private String processed;
+    private String description;
     private String title;
     private Timestamp createdAt;
     private Timestamp updated_at;
 
+    @JsonIgnore
     @OneToMany(
             mappedBy = "video", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private Set<Comment> comments;
+    private Set<Comment> comment;
+
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "channel_id", nullable = false)
     private Channel channel;
 
-    public Set<Comment> getComments() {
-        return comments;
+    public Set<Comment> getComment() {
+        return comment;
     }
 
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
+    public void setComment(Set<Comment> comments) {
+        this.comment = comments;
     }
-
-
-/*
-    public void addComment(PostComment comment) {
-        comments.add(comment);
-        comment.setPost(this);
-    }
-
-    public void removeComment(PostComment comment) {
-        comments.remove(comment);
-        comment.setPost(null);
-    }
-
-
- */
-
 
 
     public Long getId() {
@@ -76,12 +62,12 @@ public class Video {
         this.key = key;
     }
 
-    public String getProcessed() {
-        return processed;
+    public String getDescription() {
+        return description;
     }
 
-    public void setProcessed(String processed) {
-        this.processed = processed;
+    public void setDescription(String processed) {
+        this.description = processed;
     }
 
     public String getTitle() {

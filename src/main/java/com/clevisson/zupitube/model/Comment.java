@@ -9,7 +9,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String replay;
+    private String text;
     private Timestamp createdAt;
     private Timestamp updated_at;
 
@@ -30,12 +30,12 @@ public class Comment {
         this.id = id;
     }
 
-    public String getReplay() {
-        return replay;
+    public String getText() {
+        return text;
     }
 
-    public void setReplay(String replay) {
-        this.replay = replay;
+    public void setText(String replay) {
+        this.text = replay;
     }
 
     public Timestamp getCreatedAt() {

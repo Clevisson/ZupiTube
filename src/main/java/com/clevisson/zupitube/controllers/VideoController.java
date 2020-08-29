@@ -2,15 +2,19 @@ package com.clevisson.zupitube.controllers;
 
 import com.clevisson.zupitube.model.Video;
 import com.clevisson.zupitube.repository.VideoRepository;
+import com.clevisson.zupitube.service.AmazonClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping(path = "/Post")
-public class PostController {
-    private final VideoRepository repository;
+@RequestMapping(path = "/video")
+public class VideoController {
 
-    public PostController(VideoRepository repository) {
+    private final VideoRepository repository;
+    private AmazonClient amazonClient;
+
+    public VideoController(VideoRepository repository) {
         this.repository = repository;
     }
 
@@ -27,9 +31,11 @@ public class PostController {
     }
 
     @PostMapping
-    public Video createComment(@RequestBody Video video) {
+    public Video createVideo(@RequestBody Video video, @RequestPart(value = "file") MultipartFile file) {
+        video.setKey(this.amazonClient.uploadVideo(file));
         return repository.save(video);
     }
+
 
     @PutMapping(value = "/{id}")//VER NECESSIDADE DE UPDATE COMMENT
     public ResponseEntity<Video> updateVideoById(@PathVariable("id") long id, @RequestBody Video video) {
@@ -37,7 +43,7 @@ public class PostController {
                 .map(record -> {
                     record.setTumbnail_url(video.getTumbnail_url());
                     record.setKey(video.getKey());
-                    record.setProcessed(video.getProcessed());
+                    record.setDescription(video.getDescription());
                     record.setTitle(video.getTitle());
                     record.setCreatedAt(video.getCreatedAt());
                     record.setUpdated_at(video.getUpdated_at());
