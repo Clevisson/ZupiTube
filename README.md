@@ -16,7 +16,7 @@ Bootcamp_Zup
 Clone o projeto, faça download e abra no IntelliJ.<br />
 
 ## Recursos_Descrição
->Como produto mínimo viável,foi desenvolvida a funcionalidade de hospedar o video na AWS.<br /> Através da rota http://localhost:9000/storage/uploadVideo, passando o video na request, com a key "video", ele é enviado para um bucket na aws e retornado sua Url que pode acessada para consumo do recurso.<br/>
+>Como produto mínimo viável,foi desenvolvida a funcionalidade de hospedar o video na AWS.<br /> Através da rota http://localhost:9000/storage/uploadVideo, passando o video na request, com a key "video", ele é enviado para um bucket na aws e retornado sua Url que pode ser acessada para consumo do recurso.<br/>
 Os outros recursos como: Usuário, Criar Canal e adicionar comentários no video, estão feitas seus models e Controlers,
 mas essas funcionalidades ainda serão desenvolvidas! Aqui, até agora, elas só foram estruturadas. Uma vez que, foi decidido focar em resolver o problema da hospedagem do video.
 Que possibilita por exemplo criar videos e servi-los através de sua Url.<br/>
