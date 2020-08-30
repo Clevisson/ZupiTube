@@ -44,8 +44,8 @@ public class AmazonClient {
         return convFile;
     }
 
-    private String generateFileName (MultipartFile multiPart) {
-        return new Date(). getTime () + "-" + multiPart.getOriginalFilename (). replace ("", "_");
+    private String generateFileName(MultipartFile multiPart) {
+        return new Date().getTime() + "-" + multiPart.getOriginalFilename().replace("", "_");
     }
 
     private void uploadFileTos3bucket(String fileName, File file) {
@@ -71,6 +71,15 @@ public class AmazonClient {
     public String deleteFileFromS3Bucket(String fileUrl) {
         String fileName = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
         s3client.deleteObject(new DeleteObjectRequest(bucketName + "/", fileName));
-        return "Successfully deleted";
+        return "Video apagado com sucesso";
+    }
+
+    public List<String> listObjects() {
+        List<String> listkeys = new ArrayList<>();
+        ObjectListing objectListing = s3client.listObjects(bucketName);
+        for (S3ObjectSummary os : objectListing.getObjectSummaries()) {
+            listkeys.add(os.getKey());
+        }
+        return listkeys;
     }
 }

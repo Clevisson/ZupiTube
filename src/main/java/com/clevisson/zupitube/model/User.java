@@ -111,8 +111,8 @@ public class User {
         this.profilePic = profilePic;
     }
 
-  @Override
-    public String toString(){
+    @Override
+    public String toString() {
         return getFirstName() + getLastName();
-  }
+    }
 }
