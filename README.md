@@ -14,6 +14,8 @@ Bootcamp_Zup
 ## Instalação
 
 Clone o projeto, faça download e abra no IntelliJ.<br />
+## É necessário criar um bucket na aws para testar o código!<br />
+## Segue link explicando os passos: https://docs.aws.amazon.com/pt_br/AmazonS3/latest/dev/example-walkthroughs-managing-access-example1.html
 
 ## Recursos_Descrição
 >Como produto mínimo viável,foi desenvolvida a funcionalidade de hospedar o video.<br /> Através da rota http://localhost:9000/storage/uploadVideo, passando o video na request, com a key "file", ele é enviado para um bucket na aws e retornado sua Url que pode ser acessada para consumo do recurso.<br/>
