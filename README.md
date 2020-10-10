@@ -13,7 +13,7 @@ Bootcamp_Zup
 
 ## Instalação
 
-Clone o projeto, faça download e abra no IntelliJ.<br />
+Clone o projeto, faça download e abra no IntelliJ IDEA.<br />
 ## É necessário criar um bucket na aws para testar o código!<br />
 ## Segue link explicando os passos: https://docs.aws.amazon.com/pt_br/AmazonS3/latest/dev/example-walkthroughs-managing-access-example1.html
 
